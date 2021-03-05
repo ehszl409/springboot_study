@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class CommonRespDto<T> {
-	private int statusConde; //1 정상 -1 실채
+	private int statusConde; //1 정상 -1실체
 	private String msg; // 오류 내용
 	private T data;
 }

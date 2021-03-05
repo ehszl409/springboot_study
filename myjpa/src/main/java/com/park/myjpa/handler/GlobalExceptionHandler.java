@@ -1,4 +1,4 @@
-package com.park.myjpa.exhandler;
+package com.park.myjpa.handler;
 
 import org.hibernate.exception.DataException;
 import org.springframework.dao.DataIntegrityViolationException;
