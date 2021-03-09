@@ -50,8 +50,6 @@ public class PostController {
 		if (principal == null) {
 			return new CommonRespDto<>(-1, "실패", null);
 		} else {
-
-			Post post = postSaveReqDto.toEntity();
 			// 실패 => Exception을 탄다.
 			Post postEntity = postRepository.save(postSaveReqDto.toEntity());
 			postEntity.setUser(principal);
