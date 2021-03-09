@@ -24,11 +24,13 @@ public class UserContoller {
 	private final HttpSession session;
 	private final UserService userService;
 	
+	// 인증도 필요 없음 = 그래서 주소를 /join으로 만듬
 	@PostMapping("/join")
 	public CommonRespDto<?> join(@RequestBody UserJoinReqDto userJoinReqDto){
 		return new CommonRespDto<>(1, "성공",userService.회원가입(userJoinReqDto) );
 	}
 	
+	// 인증도 필요 없음 = 그래서 주소를 /login으로 만듬
 	@PostMapping("/login")
 	public CommonRespDto<?> login(@RequestBody UserLoginReqDto userLoginReqDto){
 		
@@ -42,11 +44,13 @@ public class UserContoller {
 		}
 	}
 	
+	// 인증만 필요
 	@GetMapping("/user")
 	public CommonRespDto<?> findAll(){
 		return new CommonRespDto<>(1, "성공", userService.전체찾기());
 	}
 	
+	// 인증만 필요
 	@GetMapping("/user/{id}")
 	public CommonRespDto<?> findById(@PathVariable long id){
 		return new CommonRespDto<>(1, "성공", userService.한건찾기(id));

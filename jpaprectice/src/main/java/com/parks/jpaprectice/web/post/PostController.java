@@ -25,6 +25,8 @@ public class PostController {
 	private final HttpSession session;
 	private final PostService postService;
 
+	
+	// 인증만 필요
 	@PostMapping("/post")
 	public CommonRespDto<?> save(@RequestBody PostSaveReqDto postSaveReqDto){
 		
@@ -38,22 +40,25 @@ public class PostController {
 		}
 	}
 	
+	// 인증만 필요
 	@GetMapping("/post")
 	public CommonRespDto<?> findAll(){
 		return new CommonRespDto<>(1, "성공", postService.전체찾기());
 	}
 	
+	// 인증만 필요
 	@GetMapping("/post/{id}")
 	public CommonRespDto<?> findById(@PathVariable long id){
 		return new CommonRespDto<>(1, "성공", postService.한건찾기(id));
 	}
 	
+	// 인증과 권한이 필요
 	@PutMapping("/post/{id}")
 	public CommonRespDto<?> Update(@PathVariable long id, @RequestBody PostSaveReqDto postSaveReqDto){
-		
 		return new CommonRespDto<>(1,"성공", postService.수정하기(id, postSaveReqDto));
 	}
 	
+	// 인증과 권한이 필요 
 	@DeleteMapping("/post/{id}")
 	public CommonRespDto<?> DeleteById(@PathVariable long id){
 		postService.삭제하기(id);
